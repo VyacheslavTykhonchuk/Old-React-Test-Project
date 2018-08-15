@@ -1,0 +1,44 @@
+.dairy-comments {
+    &__form-container {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    &__comments {
+        min-height: 420px;
+        max-height: 60vh;
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
+
+        & + * {
+            margin-top: 20px;
+        }
+    }
+
+    &__form {
+        width: calc(100% - 67px);
+    }
+
+    &__textarea {
+        width: 100%;
+        resize: none;
+        color: hsl(0, 0%, 40%);
+        border: 1px solid #CCCCCC;
+    }
+
+    &__avatar {
+        width: 55px;
+        height: 55px;
+        background: #FF8A00;
+
+        & + * {
+            margin-left: 12px;
+        }
+
+        &_gray {
+            background: #E6E6E6;
+        }
+    }
+}

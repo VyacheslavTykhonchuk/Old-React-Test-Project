@@ -1,0 +1,31 @@
+.dairy-comments__form-container {
+  display: flex;
+  align-items: flex-start;
+  width: 100%; }
+
+.dairy-comments__comments {
+  min-height: 420px;
+  max-height: 60vh;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column; }
+  .dairy-comments__comments + * {
+    margin-top: 20px; }
+
+.dairy-comments__form {
+  width: calc(100% - 67px); }
+
+.dairy-comments__textarea {
+  width: 100%;
+  resize: none;
+  color: #666666;
+  border: 1px solid #CCCCCC; }
+
+.dairy-comments__avatar {
+  width: 55px;
+  height: 55px;
+  background: #FF8A00; }
+  .dairy-comments__avatar + * {
+    margin-left: 12px; }
+  .dairy-comments__avatar_gray {
+    background: #E6E6E6; }

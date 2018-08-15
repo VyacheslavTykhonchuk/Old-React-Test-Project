@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box; }
+
+h1, h3 {
+  margin: 0; }
+
+input, button, textarea {
+  outline: none; }
+
+button {
+  cursor: pointer; }
+
+.dairy-app {
+  display: flex;
+  align-items: stretch;
+  font-family: Roboto, sans-serif; }
+  .dairy-app__aside {
+    display: flex;
+    flex-direction: column;
+    background: #2B2F3E;
+    padding: 20px 30px;
+    width: 20%;
+    min-height: 100vh; }
+    .dairy-app__aside h1 {
+      font-size: 30px;
+      color: #fff;
+      font-weight: 100; }
+      .dairy-app__aside h1 + * {
+        margin-top: .5em; }
+    .dairy-app__aside h3 {
+      font-size: 16px;
+      color: #808080;
+      font-weight: 400; }
+  .dairy-app__main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: #F9F9F9;
+    width: 80%;
+    min-height: 100vh;
+    padding: 2em; }
+    .dairy-app__main > * {
+      width: calc(50% - 1em);
+      background: white;
+      box-shadow: 2px 2px 5px lightgray;
+      border-radius: 3px;
+      min-height: 520px;
+      padding: 2em; }
+
+.section__title {
+  font-size: 38px;
+  font-weight: 100; }
+  .section__title + * {
+    margin-top: 18px; }
+
+.hint {
+  opacity: .4;
+  font-size: 12px; }

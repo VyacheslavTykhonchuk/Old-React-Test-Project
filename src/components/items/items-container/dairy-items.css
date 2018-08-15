@@ -1,0 +1,32 @@
+.dairy-items__form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .dairy-items__form + * {
+    margin-top: 20px; }
+
+.dairy-items__input {
+  width: calc((100% * 2/3) - 8px);
+  -webkit-appearance: none;
+  border: 1px solid #cccccc;
+  font-size: 18px;
+  font-weight: 100;
+  padding: 10px;
+  border-radius: 5px; }
+
+.dairy-items__submit {
+  width: calc(100% * 1/3);
+  -webkit-appearance: none;
+  background: #27CCC0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 100;
+  padding: 11px 0;
+  border-radius: 5px;
+  border: none;
+  transition: all .4s; }
+  .dairy-items__submit:hover {
+    background: #23b8ae; }
+
+.items-list {
+  max-height: 68vh; }

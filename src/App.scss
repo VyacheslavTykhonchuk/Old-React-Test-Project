@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+}
+
+h1, h3 {
+    margin: 0;
+}
+
+input, button, textarea {
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.dairy-app {
+    display: flex;
+    align-items: stretch;
+    font-family: Roboto, sans-serif;
+
+    &__aside {
+        display: flex;
+        flex-direction: column;
+        background: #2B2F3E;
+        padding: 20px 30px;
+        width: 20%;
+        min-height: 100vh;
+
+        h1 {
+            font-size: 30px;
+            color: #fff;
+            font-weight: 100;
+
+            & + * {
+                margin-top: .5em;
+            }
+        }
+
+        h3 {
+            font-size: 16px;
+            color: #808080;
+            font-weight: 400;
+        }
+    }
+
+    &__main {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        background: #F9F9F9;
+        width: 80%;
+        min-height: 100vh;
+        padding: 2em;
+
+        > * {
+            width: calc(50% - 1em);
+            background: white;
+            box-shadow: 2px 2px 5px lightgray;
+            border-radius: 3px;
+            min-height: 520px;
+            padding: 2em;
+        }
+    }
+}
+
+.section {
+    &__title {
+        font-size: 38px;
+        font-weight: 100;
+
+        & + * {
+            margin-top: 18px;
+        }
+    }
+}
+
+.hint {
+    opacity: .4;
+    font-size: 12px;
+}
