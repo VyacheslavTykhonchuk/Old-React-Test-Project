@@ -2,7 +2,7 @@
   "name": "react-sample",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vyacheslavtykhonchuk.github.io/React/",
+  "homepage": "https://vyacheslavtykhonchuk.github.io/React",
   "dependencies": {
     "gh-pages": "^1.2.0",
     "node-sass-chokidar": "^1.3.3",
