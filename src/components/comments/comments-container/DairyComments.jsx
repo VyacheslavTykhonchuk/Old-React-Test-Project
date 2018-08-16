@@ -7,21 +7,20 @@ class DairyComments extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: this.props.renderComments ? this.props.renderComments : [],
+      items: this.props.renderComments ? this.props.renderComments : [], // check if component is new
       text: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // handle input from user
   handleChange(e) {
     this.setState({ text: e.target.value });
   }
-
+  // save comment
   handleSubmit(e) {
     if (e.keyCode === 13 && e.ctrlKey) {
-      //
-      //
       if (!this.state.text.length) {
         return;
       }
@@ -41,11 +40,12 @@ class DairyComments extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener("keydown", this.handleSubmit);
+    document.addEventListener("keydown", this.handleSubmit); // hotkeys listener set
   }
   componentWillUnmount() {
-    document.removeEventListener("keydown", this.handleSubmit);
+    document.removeEventListener("keydown", this.handleSubmit); // hotkeys listener removed
   }
+  // initiate component update and re-render on new props received
   componentWillReceiveProps(newProps) {
     this.setState({
       items: newProps.renderComments ? newProps.renderComments : []
@@ -59,9 +59,11 @@ class DairyComments extends Component {
           Comments {this.props.num === false ? "" : "#" + (this.props.num + 1)}
         </h3>
         <div className="dairy-comments__comments">
+          {/* render comments from array */}
           {this.state.items.map(item => (
             <Comment key={item.id} id={item.id} text={item.text} />
           ))}
+          {/* end render comments from array */}
         </div>
         <div className="dairy-comments__form-container">
           <div className="dairy-comments__avatar dairy-comments__avatar_gray" />

@@ -7,6 +7,7 @@ class DairyItems extends Component {
   constructor(props) {
     super(props);
 
+    //check if component have saved data
     if (localStorage.savedState) {
       this.state = JSON.parse(localStorage.getItem("savedState"));
     } else {
@@ -26,10 +27,12 @@ class DairyItems extends Component {
     this.receiveComments = this.receiveComments.bind(this);
   }
 
+  // handle input from user
   handleChange(e) {
     this.setState({ text: e.target.value });
   }
 
+  // save item
   handleSubmit(e) {
     e.preventDefault();
     if (!this.state.text.length) {
@@ -46,6 +49,7 @@ class DairyItems extends Component {
     }));
   }
 
+  // delete child (by id) from state arr
   deleteItem(elementId) {
     let arr = this.state.items.slice(); // копіюю масив так як документація React забороняє прямі операції зі this.state
 
@@ -60,6 +64,9 @@ class DairyItems extends Component {
     }
   }
 
+  // make child active (by id)
+  // it must be done in parent component to be sure that
+  // only 1 component can be active at the moment
   makeItemActive(id, index) {
     this.setState({
       activeItemId: id,
@@ -68,12 +75,14 @@ class DairyItems extends Component {
     this.props.commentsNum(index);
   }
 
+  // receive data and lift state
   receiveComments(commentsArr) {
     this.props.makeActive(commentsArr);
     this.setState({
       currItemComments: commentsArr
     });
   }
+  // on state update or props received - save
   componentDidUpdate() {
     localStorage.setItem("savedState", JSON.stringify(this.state)); // localStorage не може зберігати об'єкт
   }
@@ -93,23 +102,25 @@ class DairyItems extends Component {
           <button className="dairy-items__submit">Add new</button>
         </form>
         <div className="items-list">
+          {/* render items from state arr */}
           {this.state.items.map((item, index) => (
             <Item
-              key={item.id}
-              id={item.id}
-              index={index}
-              text={item.text}
-              handleDeleteItem={this.deleteItem}
+              key={item.id} // uniq key
+              id={item.id} // uniq id
+              index={index} // index for comments heading
+              text={item.text} // item name
+              handleDeleteItem={this.deleteItem} // passing callback function to lift state from child for deleteng
               thisComments={
                 this.state.activeItemId === item.id
                   ? this.props.itemComments
                   : false
-              }
-              makeItemActive={this.makeItemActive}
-              receiveComments={this.receiveComments}
-              isActive={this.state.activeItemId === item.id}
+              } // save comments to their item
+              makeItemActive={this.makeItemActive} // passing callback function to lift state from child for activating
+              receiveComments={this.receiveComments} // passing callback function to lift state from child to receive its comments
+              isActive={this.state.activeItemId === item.id} // pass item status to render it active
             />
           ))}
+          {/* end render items from state arr */}
         </div>
       </section>
     );

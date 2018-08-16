@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 
+//  import componenents
 import DairyItems from "./components/items/items-container/DairyItems";
 import DairyComments from "./components/comments/comments-container/DairyComments";
 
@@ -12,11 +13,13 @@ class App extends Component {
       comments: null,
       commentsNum: null
     };
+
     this.saveComments = this.saveComments.bind(this);
     this.makeActive = this.makeActive.bind(this);
     this.commentsNum = this.commentsNum.bind(this);
   }
 
+  // receive data child and save to the state
   saveComments(commentsObj) {
     this.setState({
       comments: commentsObj
@@ -41,14 +44,14 @@ class App extends Component {
         </aside>
         <main className="dairy-app__main">
           <DairyItems
-            itemComments={this.state.comments}
-            makeActive={this.makeActive}
-            commentsNum={this.commentsNum}
+            itemComments={this.state.comments} // pass data
+            makeActive={this.makeActive} // receive data
+            commentsNum={this.commentsNum} // receive data
           />
           <DairyComments
-            handleSaveComments={this.saveComments}
-            renderComments={this.state.comments}
-            num={this.state.commentsNum}
+            handleSaveComments={this.saveComments} // receive data
+            renderComments={this.state.comments} // pass data
+            num={this.state.commentsNum} // pass data
           />
         </main>
       </div>
